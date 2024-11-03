@@ -1,0 +1,64 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    box-shadow: 0 10px 36px -12px #2425262a;
+    padding-block: 5px;
+}
+
+.navigation-list{
+    display: flex;
+    justify-content: space-between;
+}
+.nav-list{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.add-btn{
+    border: none;
+    background: #0496ff;
+    color: white;
+    padding-inline: 20pt;
+    padding-block: 10px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 15px 30px -12px #0496ff;
+    cursor: pointer;
+}
+.add-btn:hover{
+    background: #0496ffbd;
+}
+.logo{
+    color: #0496ff;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.logo-On{
+    color: rgba(255, 0, 0, 0.521);
+}
+.submit-btn{
+    display: flex;
+    justify-content: center;
+    margin-block: 10px;
+}
+.fileZone::-webkit-file-upload-button{
+    border: none;
+    background: #0496ff;
+    color: white;
+    padding-inline: 20pt;
+    padding-block: 10px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 15px 30px -12px #0496ff;
+    cursor: pointer;
+}
