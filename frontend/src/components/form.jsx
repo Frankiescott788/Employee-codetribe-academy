@@ -24,7 +24,7 @@ function Form() {
                  photo,
                  date : new Date().toString()
             };
-           await Axios.post('http://localhost:8080/api/employees', employee, {
+           await Axios.post('https://codetribeservice.onrender.com/api/employees', employee, {
             headers : {
                 'Content-Type' : 'multipart/form-data'
             }
