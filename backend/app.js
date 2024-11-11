@@ -12,7 +12,8 @@ app.use(cors({}));
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
+  app.use(routes);
   console.log(`Server connected to database and running on port ${PORT}`);
 });
 
-app.use(routes);
+
