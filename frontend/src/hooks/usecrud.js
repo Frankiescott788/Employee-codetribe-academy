@@ -6,7 +6,7 @@ export default function usecrud() {
     const [isLoading, setIsLoading] = useState(true);
     const fetch_employees = async () => {
         try {
-            const { data, status } = await axios.get('http://localhost:8080/api/employees');
+            const { data, status } = await axios.get('https://codetribeservice.onrender.com/api/employees');
             if(status === 200) {
                 setEmployees(data);
                 console.log(data)
