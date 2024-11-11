@@ -40,7 +40,7 @@ function Update_Form() {
         photo,
         date: new Date().toString(),
       };
-      await Axios.patch(`http://localhost:5000/employees/${id}`, employee);
+      await Axios.patch(`https://codetribeservice.onrender.com/${id}`, employee);
       navigate("/");
     } catch (error) {
       console.log(error);
