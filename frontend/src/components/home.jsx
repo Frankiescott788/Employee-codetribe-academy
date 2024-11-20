@@ -19,7 +19,7 @@ function Home() {
 
   const deleteEmployee = async (id) => {
     try {
-      await axios.delete('http://localhost:8080/api/employees/' + id);
+      await axios.delete('https://codetribeservice.onrender.com/api/employees/' + id);
       setEmployees(employees.filter(employee => employee.id !== id));
     } catch (error) {
       console.log(error);
