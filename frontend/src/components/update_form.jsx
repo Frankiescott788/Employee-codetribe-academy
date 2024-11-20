@@ -15,7 +15,7 @@ function Update_Form() {
   const getUser = async () => {
     try {
       const { status, data } = await Axios.get(
-        `http://localhost:8000/api/employees/${id}`, {
+        `https://codetribeservice.onrender.com/api/employees/${id}`, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -50,7 +50,7 @@ function Update_Form() {
       }
   
       await Axios.patch(
-        `http://localhost:8000/api/employees/${id}`,
+        `https://codetribeservice.onrender.com/api/employees/${id}`,
         formData,
         {
           headers: {
