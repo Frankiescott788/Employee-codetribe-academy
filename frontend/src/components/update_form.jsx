@@ -15,7 +15,11 @@ function Update_Form() {
   const getUser = async () => {
     try {
       const { status, data } = await Axios.get(
-        `http://localhost:8080/api/employees/${id}`
+        `http://localhost:8000/api/employees/${id}`, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       if (status === 200) {
         console.log(data);
@@ -23,7 +27,7 @@ function Update_Form() {
         setEmail(data.email);
         setPhoneNumber(data.phoneNumber);
         setPosition(data.position);
-        setPhoto(data.imageUrl);
+        setPhoto(data.imageUrly);
       }
     } catch (error) {
       console.error(error);
@@ -32,20 +36,35 @@ function Update_Form() {
 
   const handle_submits = async () => {
     try {
-      const employee = {
-        name,
-        email,
-        phoneNumber,
-        position,
-        photo,
-        date: new Date().toString(),
-      };
-      await Axios.patch(`https://codetribeservice.onrender.com/${id}`, employee);
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("phoneNumber", phoneNumber);
+      formData.append("position", position);
+      if (photo) {
+        formData.append("photo", photo);
+      }
+      
+      for (let [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
+  
+      await Axios.patch(
+        `http://localhost:8000/api/employees/${id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       navigate("/");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
+  
+  
 
   useEffect(() => {
     getUser();
@@ -97,15 +116,10 @@ function Update_Form() {
               />
               <input
                 type="file"
+                
                 style={{ marginBlock: "10px" }}
                 onChange={(e) => {
-                  let filee = e.target.files[0];
-                  let reader = new FileReader();
-                  reader.onloadend = () => {
-                    setPhoto(reader.result);
-                    sessionStorage.setItem("photo", reader.result);
-                  };
-                  reader.readAsDataURL(filee);
+                  setPhoto(e.target.files[0] );
                 }}
                 className="fileZone"
               />
